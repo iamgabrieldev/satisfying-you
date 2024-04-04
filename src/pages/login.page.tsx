@@ -2,9 +2,9 @@ import { View } from "react-native";
 import { useAppTheme } from "../theme/defaultTheme";
 import { Button, Text } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
-import { SatisfyingYouLogo } from "./satisfying-you-logo";
+import { SatisfyingYouLogo } from "../components/satisfying-you-logo";
 
-export const LoginPage = () => {
+const LoginPage = () => {
   const theme = useAppTheme();
   const { navigate } = useNavigation();
   return (
@@ -14,3 +14,5 @@ export const LoginPage = () => {
     </View>
   );
 };
+
+export default LoginPage;

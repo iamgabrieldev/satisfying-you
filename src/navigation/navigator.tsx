@@ -3,10 +3,9 @@ import {
   NativeStackNavigationOptions,
 } from "@react-navigation/native-stack";
 import { RootStackParamList } from "./navigation";
-import { HomePage } from "../home/home.page";
-import { LoginPage } from "../login/login.page";
 import { useAppTheme } from "../theme/defaultTheme";
-import { View } from "react-native";
+import HomePage from "../pages/home.page";
+import LoginPage from "../pages/login.page";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 

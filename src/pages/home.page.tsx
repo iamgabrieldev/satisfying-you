@@ -3,7 +3,7 @@ import { useAppTheme } from "../theme/defaultTheme";
 import { Button, Text } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 
-export const HomePage = () => {
+const HomePage = () => {
   const theme = useAppTheme();
   const { navigate } = useNavigation();
   return (
@@ -13,3 +13,5 @@ export const HomePage = () => {
     </View>
   );
 };
+
+export default HomePage;
