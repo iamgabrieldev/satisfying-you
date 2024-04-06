@@ -26,7 +26,6 @@ export const defaultTheme: MD3Theme & CustomThemeProps = {
     onBackground: "#fff",
     primaryContainer: "#2B1D62",
     onPrimaryContainer: "#fff",
-    onSurface: "#fff",
     success: "#37BD6D",
     onSuccess: "#fff",
     info: "#419ED7",

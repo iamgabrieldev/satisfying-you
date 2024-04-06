@@ -6,6 +6,7 @@ import { RootStackParamList } from "./navigation";
 import { useAppTheme } from "../theme/defaultTheme";
 import HomePage from "../pages/home.page";
 import LoginPage from "../pages/login.page";
+import { SyAppbar } from "../components/appbar/Sy.Appbar";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -22,6 +23,7 @@ export const Navigator = () => {
       initialRouteName="Home"
       screenOptions={{
         contentStyle: { backgroundColor: theme.colors.background },
+        header: (props) => <SyAppbar {...props} />,
       }}
     >
       <Stack.Screen name="Home" component={HomePage} options={headerOptions} />

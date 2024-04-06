@@ -12,7 +12,7 @@ export type TextFieldProps = {
   helperText?: string;
   isError?: boolean;
   value?: string;
-  onChange?: (e: NativeSyntheticEvent<TextInputChangeEventData>) => void;
+  onChange?: (newText: string) => void;
 };
 
 export const TextField = forwardRef<NativeTextInput, TextFieldProps>(
@@ -28,7 +28,7 @@ export const TextField = forwardRef<NativeTextInput, TextFieldProps>(
           error={isError}
           ref={forwardedRef}
           value={value}
-          onChange={onChange}
+          onChangeText={onChange}
         />
         {helperText && (
           <HelperText visible={isError} type="error">

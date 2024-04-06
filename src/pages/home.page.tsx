@@ -5,11 +5,18 @@ import { useNavigation } from "@react-navigation/native";
 
 const HomePage = () => {
   const theme = useAppTheme();
-  const { navigate } = useNavigation();
   return (
     <View>
-      <Text style={{ color: theme.colors.onBackground }}>Home Page!</Text>
-      <Button onPress={() => navigate("Login")}>Go to Login Page</Button>
+      <Text
+        style={{
+          textAlign: "center",
+          marginTop: theme.spacing(2),
+          color: theme.colors.onBackground,
+        }}
+        variant="headlineMedium"
+      >
+        Home Page!
+      </Text>
     </View>
   );
 };
