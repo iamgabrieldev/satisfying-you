@@ -13,7 +13,7 @@ export type SyMenuProps<Option> = {
   /** Returns a label to be displayed for the given option. */
   getOptionLabel: (option: Option) => string;
   /** Handles option's ```onPress``` action. */
-  onOptionSelected: (option: Option) => void;
+  onSelectOption: (option: Option) => void;
 };
 
 export const SyMenu = <Option,>({
@@ -22,7 +22,7 @@ export const SyMenu = <Option,>({
   anchor,
   options,
   getOptionLabel,
-  onOptionSelected,
+  onSelectOption,
 }: SyMenuProps<Option>) => {
   return (
     <Menu
@@ -34,7 +34,8 @@ export const SyMenu = <Option,>({
       {options.map((option) => (
         <Menu.Item
           title={getOptionLabel(option)}
-          onPress={() => onOptionSelected(option)}
+          onPress={() => onSelectOption(option)}
+          key={`symenu-${JSON.stringify(option)}`}
         />
       ))}
     </Menu>

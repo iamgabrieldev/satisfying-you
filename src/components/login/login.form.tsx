@@ -20,13 +20,18 @@ export const LoginForm = () => {
     <FormProvider {...form}>
       <View
         style={{
-          marginBottom: theme.spacing(4),
+          marginBottom: theme.spacing(3),
           gap: theme.spacing(2),
         }}
       >
         <LoginFormLayout.Email />
         <LoginFormLayout.Password />
-        <Button onPress={() => submit()} mode="contained">
+        <Button
+          onPress={() => submit()}
+          mode="contained"
+          buttonColor={theme.colors.success}
+          textColor={theme.colors.onSuccess}
+        >
           Login
         </Button>
       </View>

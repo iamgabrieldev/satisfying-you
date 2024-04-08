@@ -54,7 +54,7 @@ export const SyAppbar = ({
         }
         options={menuOptions}
         getOptionLabel={(option) => option.label}
-        onOptionSelected={(option) => {
+        onSelectOption={(option) => {
           option.navigate();
           setOpenMenu(false);
         }}
