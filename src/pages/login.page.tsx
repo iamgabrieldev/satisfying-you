@@ -13,8 +13,8 @@ const LoginPage = () => {
       <SatisfyingYouLogo />
       <View
         style={{
-          paddingLeft: theme.spacing(4),
-          paddingEnd: theme.spacing(4),
+          marginStart: theme.spacing(3),
+          marginEnd: theme.spacing(3),
         }}
       >
         <LoginForm />

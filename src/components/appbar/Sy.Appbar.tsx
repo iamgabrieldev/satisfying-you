@@ -28,6 +28,7 @@ export const SyAppbar = ({
       label: "Login",
       navigate: () => navigate("Login"),
     },
+    { label: "Create Account", navigate: () => navigate("Create Account") },
   ];
 
   return (

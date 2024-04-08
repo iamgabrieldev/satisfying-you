@@ -21,7 +21,7 @@ export const Navigator = () => {
 
   return (
     <Stack.Navigator
-      initialRouteName="Home"
+      initialRouteName="Login"
       screenOptions={{
         contentStyle: { backgroundColor: theme.colors.background },
         header: (props) => <SyAppbar {...props} />,
