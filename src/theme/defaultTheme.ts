@@ -20,6 +20,8 @@ export const defaultTheme: MD3Theme & CustomThemeProps = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
+    primary: "#2e4882",
+    onPrimary: "#fff",
     background: "#372775",
     onBackground: "#fff",
     primaryContainer: "#2B1D62",

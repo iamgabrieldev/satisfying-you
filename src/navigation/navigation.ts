@@ -1,11 +1,12 @@
 /**
- * Defined all navigations and params that can be passed.
+ * Defines all navigations and params that can be passed.
  * ```Undefined``` means that the navigation doesn't take any params, but it's still defined.
  * @see {@link https://reactnavigation.org/docs/typescript/#type-checking-the-navigator}
  */
 export type RootStackParamList = {
   Home: undefined;
   Login: undefined;
+  "Create Account": undefined;
 };
 
 /**

@@ -6,7 +6,7 @@
  */
 
 import React from "react";
-import { Navigator } from "./src/navigation/navigator";
+import { Navigator } from "./src/navigation/Navigator";
 
 function App(): React.JSX.Element {
   return <Navigator />;
