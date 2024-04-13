@@ -27,7 +27,7 @@ function ForgotPasswordPage() {
       <DefaultInput onChangeText={handleEmailChange} placeholder={'Digite seu email'} title={'E-mail'} size={300} error={emailError} height={0} onFocus={function (): void {
           } } />
 
-      <DefaultButton title={'Recuperar'} color={'#37BD6D'} width={300} disabled={Boolean(emailError) || email == ""} onPress={goToLogin} />
+      <DefaultButton title={'Recuperar '} color={'#37BD6D'} width={300} disabled={Boolean(emailError) || email == ""} onPress={goToLogin} />
     </View>
   );
 }
