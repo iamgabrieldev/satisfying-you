@@ -24,9 +24,10 @@ const LoginPage = () => {
           }}
         >
           <Button mode="contained" onPress={() => navigate("Create Account")}>
-            Create Account
+            Criar minha conta
           </Button>
-          <Button mode="contained">Forgot My Password</Button>
+          <Button mode="contained" onPress={() => navigate("Recuperação de senha")}>Esqueci minha senha
+          </Button>
         </View>
       </View>
     </View>

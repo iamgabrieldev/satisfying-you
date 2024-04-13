@@ -9,7 +9,7 @@ export const SatisfyingYouLogo = () => {
       style={{
         color: theme.colors.onBackground,
         textAlign: "center",
-        margin: theme.spacing(4),
+        margin: theme.spacing(4)
       }}
     >
       Satisfying You =D

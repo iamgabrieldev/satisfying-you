@@ -29,7 +29,7 @@ const Password = () => {
       rules={{ required: "Password is required" }}
       render={({ field, fieldState }) => (
         <TextField
-          label="Password"
+          label="Senha"
           {...field}
           isError={fieldState.error ? true : false}
           helperText={fieldState.error?.message}
