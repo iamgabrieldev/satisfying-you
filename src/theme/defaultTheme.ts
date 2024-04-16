@@ -31,6 +31,7 @@ export const defaultTheme: MD3Theme & CustomThemeProps = {
     info: "#419ED7",
     onInfo: "#fff",
   },
+  roundness: 0,
   spacing: (factor) => factor * 8,
 };
 
