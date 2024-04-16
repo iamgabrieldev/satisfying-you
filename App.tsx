@@ -7,6 +7,7 @@
 
 import React from "react";
 import { Navigator } from "./src/navigation/Navigator";
+import "react-native-gesture-handler";
 
 function App(): React.JSX.Element {
   return <Navigator />;

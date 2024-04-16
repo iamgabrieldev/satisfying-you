@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const HomePage = () => {
   const theme = useAppTheme();
+  const { navigate } = useNavigation();
   return (
     <View>
       <Text
@@ -17,6 +18,9 @@ const HomePage = () => {
       >
         Home Page!
       </Text>
+      <Button onPress={() => navigate("Login")} mode="contained">
+        Sign out
+      </Button>
     </View>
   );
 };

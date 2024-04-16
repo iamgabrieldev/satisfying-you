@@ -13,7 +13,7 @@ export const LoginForm = () => {
 
   const submit = handleSubmit((formData) => {
     // TODO: Handle login
-    navigate("Home");
+    navigate("Root");
   });
 
   return (
