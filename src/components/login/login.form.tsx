@@ -32,7 +32,7 @@ export const LoginForm = () => {
           buttonColor={theme.colors.success}
           textColor={theme.colors.onSuccess}
         >
-          Login
+          Entrar
         </Button>
       </View>
     </FormProvider>

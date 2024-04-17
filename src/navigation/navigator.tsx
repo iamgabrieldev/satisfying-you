@@ -8,6 +8,8 @@ import HomePage from "../pages/home.page";
 import LoginPage from "../pages/login.page";
 import { SyAppbar } from "../components/appbar/Sy.Appbar";
 import CreateAccountPage from "../pages/create-account.page";
+import ForgotPasswordPage from "../pages/forgot-password.page";
+
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -34,6 +36,7 @@ export const Navigator = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen name="Create Account" component={CreateAccountPage} />
+      <Stack.Screen name="Recuperação de senha" component={ForgotPasswordPage} />
     </Stack.Navigator>
   );
 };

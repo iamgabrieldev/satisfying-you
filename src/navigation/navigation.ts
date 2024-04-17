@@ -7,6 +7,7 @@ export type RootStackParamList = {
   Home: undefined;
   Login: undefined;
   "Create Account": undefined;
+  "Recuperação de senha": undefined;
 };
 
 /**
