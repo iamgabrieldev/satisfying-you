@@ -1,5 +1,6 @@
 import { Controller, useFormContext } from "react-hook-form";
-import { TextField } from "../forms/TextField";
+import { TextField } from "../ui/forms/TextField";
+import { ValidationMessages } from "../validation/Messages";
 
 const Email = () => {
   const { control } = useFormContext<CreateAccountFormFields>();
@@ -7,7 +8,7 @@ const Email = () => {
     <Controller
       control={control}
       name="email"
-      rules={{ required: "Email is required" }}
+      rules={{ required: ValidationMessages.REQUIRED_EMAIL }}
       render={({ field, fieldState }) => (
         <TextField
           label="Email"
@@ -26,10 +27,10 @@ const Password = () => {
     <Controller
       control={control}
       name="password"
-      rules={{ required: "Password is required" }}
+      rules={{ required: ValidationMessages.REQUIRED_PASS }}
       render={({ field, fieldState }) => (
         <TextField
-          label="Password"
+          label="Senha"
           {...field}
           isError={fieldState.error ? true : false}
           helperText={fieldState.error?.message}
@@ -47,12 +48,12 @@ const RePassword = () => {
       control={control}
       name="repassword"
       rules={{
-        required: "Repeating Password is Required",
-        validate: (value) => value === pass || "Should be the same as password",
+        required: ValidationMessages.REQUIRED_PASS,
+        validate: (value) => value === pass || "Deve ser a mesma senha",
       }}
       render={({ field, fieldState }) => (
         <TextField
-          label="Repeat Password"
+          label="Repetir Senha"
           {...field}
           isError={fieldState.error ? true : false}
           helperText={fieldState.error?.message}

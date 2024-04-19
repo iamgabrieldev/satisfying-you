@@ -1,6 +1,6 @@
 import { NativeStackHeaderProps } from "@react-navigation/native-stack";
 import { Appbar, Menu } from "react-native-paper";
-import { useAppTheme } from "../../theme/defaultTheme";
+import { useAppTheme } from "../../../theme/defaultTheme";
 import { useState } from "react";
 import { SyMenu } from "../menu/Sy.Menu";
 import { useNavigation } from "@react-navigation/native";
@@ -28,7 +28,7 @@ export const SyAppbar = ({
       label: "Login",
       navigate: () => navigate("Login"),
     },
-    { label: "Create Account", navigate: () => navigate("Create Account") },
+    { label: "Criar Conta", navigate: () => navigate("Create Account") },
   ];
 
   return (
@@ -42,7 +42,7 @@ export const SyAppbar = ({
       }}
     >
       <Appbar.BackAction onPress={() => handleBackAction()} />
-      <Appbar.Content title={route.name} />
+      <Appbar.Content title={options.title ? options.title : route.name} />
       <SyMenu
         open={openMenu}
         onClose={() => setOpenMenu(false)}
@@ -50,7 +50,7 @@ export const SyAppbar = ({
           <Appbar.Action
             icon="dots-vertical"
             onPress={() => setOpenMenu(true)}
-            iconColor="#fff"
+            iconColor={theme.colors.onPrimaryContainer}
           />
         }
         options={menuOptions}

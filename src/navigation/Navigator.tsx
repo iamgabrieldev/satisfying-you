@@ -5,9 +5,10 @@ import {
 import { RootParamList } from "./navigation";
 import { useAppTheme } from "../theme/defaultTheme";
 import LoginPage from "../pages/login.page";
-import { SyAppbar } from "../components/appbar/Sy.Appbar";
+import { SyAppbar } from "../components/ui/appbar/Sy.Appbar";
 import CreateAccountPage from "../pages/create-account.page";
 import { AppRoot } from "./AppRoot";
+import RecoverPasswordPage from "../pages/recover-password.page";
 
 const Stack = createNativeStackNavigator<RootParamList>();
 
@@ -27,7 +28,16 @@ export const Navigator = () => {
         component={LoginPage}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="Create Account" component={CreateAccountPage} />
+      <Stack.Screen
+        name="Create Account"
+        component={CreateAccountPage}
+        options={{ title: "Criar Conta" }}
+      />
+      <Stack.Screen
+        name="Recover Password"
+        component={RecoverPasswordPage}
+        options={{ title: "Recuperar Senha" }}
+      />
       <Stack.Screen
         name="Root"
         component={AppRoot}
