@@ -8,6 +8,7 @@ export type RootStackParamList = RootParamList & AppParamList;
 export type RootParamList = {
   Login: undefined;
   "Create Account": undefined;
+  "Recover Password": undefined;
   Root: undefined;
 };
 
