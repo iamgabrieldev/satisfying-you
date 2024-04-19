@@ -37,7 +37,7 @@ export const CreateAccountForm = () => {
           buttonColor={theme.colors.success}
           textColor={theme.colors.onSuccess}
         >
-          Create Account
+          Criar Conta
         </Button>
       </View>
     </FormProvider>

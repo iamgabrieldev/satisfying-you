@@ -3,11 +3,17 @@
  * ```Undefined``` means that the navigation doesn't take any params, but it's still defined.
  * @see {@link https://reactnavigation.org/docs/typescript/#type-checking-the-navigator}
  */
-export type RootStackParamList = {
-  Home: undefined;
+export type RootStackParamList = RootParamList & AppParamList;
+
+export type RootParamList = {
   Login: undefined;
   "Create Account": undefined;
-  "Recuperação de senha": undefined;
+  "Recover Password": undefined;
+  Root: undefined;
+};
+
+export type AppParamList = {
+  Home: undefined;
 };
 
 /**

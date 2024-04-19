@@ -1,5 +1,5 @@
 import { Text } from "react-native-paper";
-import { useAppTheme } from "../theme/defaultTheme";
+import { useAppTheme } from "../../theme/defaultTheme";
 
 export const SatisfyingYouLogo = () => {
   const theme = useAppTheme();
@@ -9,7 +9,7 @@ export const SatisfyingYouLogo = () => {
       style={{
         color: theme.colors.onBackground,
         textAlign: "center",
-        margin: theme.spacing(4)
+        marginTop: theme.spacing(3),
       }}
     >
       Satisfying You =D

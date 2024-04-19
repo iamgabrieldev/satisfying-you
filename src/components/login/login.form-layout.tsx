@@ -1,5 +1,6 @@
 import { Controller, useFormContext } from "react-hook-form";
-import { TextField } from "../forms/TextField";
+import { TextField } from "../ui/forms/TextField";
+import { ValidationMessages } from "../validation/Messages";
 
 const Email = () => {
   const { control } = useFormContext<LoginFormFields>();
@@ -7,7 +8,7 @@ const Email = () => {
     <Controller
       control={control}
       name="email"
-      rules={{ required: "Email is required" }}
+      rules={{ required: ValidationMessages.REQUIRED_EMAIL }}
       render={({ field, fieldState }) => (
         <TextField
           label="Email"
@@ -26,7 +27,7 @@ const Password = () => {
     <Controller
       control={control}
       name="password"
-      rules={{ required: "Password is required" }}
+      rules={{ required: ValidationMessages.REQUIRED_PASS }}
       render={({ field, fieldState }) => (
         <TextField
           label="Senha"

@@ -1,10 +1,5 @@
 import { forwardRef } from "react";
-import {
-  NativeSyntheticEvent,
-  TextInput as NativeTextInput,
-  TextInputChangeEventData,
-  View,
-} from "react-native";
+import { TextInput as NativeTextInput, View } from "react-native";
 import { HelperText, TextInput } from "react-native-paper";
 
 export type TextFieldProps = {
@@ -13,15 +8,17 @@ export type TextFieldProps = {
   isError?: boolean;
   value?: string;
   onChange?: (newText: string) => void;
+  /** @default true */
+  fullWidth?: boolean;
 };
 
 export const TextField = forwardRef<NativeTextInput, TextFieldProps>(
   function TextField(
-    { label, helperText, isError, value, onChange },
+    { label, helperText, isError, value, onChange, fullWidth = true },
     forwardedRef,
   ) {
     return (
-      <View style={{ gap: 1 }}>
+      <View style={{ gap: 1, width: fullWidth ? "100%" : undefined }}>
         <TextInput
           label={label}
           mode="flat"
