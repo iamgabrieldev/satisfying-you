@@ -20,8 +20,7 @@ export const LoginForm = () => {
     <FormProvider {...form}>
       <View
         style={{
-          marginBottom: theme.spacing(3),
-          gap: theme.spacing(2),
+          gap: theme.spacing(1),
         }}
       >
         <LoginFormLayout.Email />

@@ -1,18 +1,35 @@
-import { Text } from "react-native-paper";
+import { Icon, Text } from "react-native-paper";
 import { useAppTheme } from "../../theme/defaultTheme";
+import { View } from "react-native";
 
 export const SatisfyingYouLogo = () => {
   const theme = useAppTheme();
   return (
-    <Text
-      variant="headlineLarge"
+    <View
       style={{
-        color: theme.colors.onBackground,
-        textAlign: "center",
-        marginTop: theme.spacing(3),
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: theme.spacing(1),
       }}
     >
-      Satisfying You =D
-    </Text>
+      <Text
+        variant="headlineLarge"
+        style={{
+          color: theme.colors.onBackground,
+          textAlign: "center",
+          marginTop: theme.spacing(4),
+          height: "100%",
+        }}
+      >
+        Satisfying You
+      </Text>
+      <Icon
+        source={"emoticon-happy-outline"}
+        size={42}
+        color={theme.colors.onBackground}
+      />
+    </View>
   );
 };

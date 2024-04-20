@@ -1,4 +1,9 @@
-import { DefaultTheme, MD3Theme, useTheme } from "react-native-paper";
+import {
+  configureFonts,
+  DefaultTheme,
+  MD3Theme,
+  useTheme,
+} from "react-native-paper";
 
 type CustomThemeProps = {
   colors: {
@@ -13,6 +18,26 @@ type CustomThemeProps = {
   spacing: (factor: number) => number;
 };
 
+const baseFont = {
+  fontFamily: "AveriaLibre-Regular",
+} as const;
+
+const baseVariants = configureFonts({
+  config: baseFont,
+});
+
+const customVariants = {
+  // Custom font variants can be declared here
+  bold: {
+    ...baseVariants.bodyMedium,
+    fontFamily: "AveriaLibre-Bold",
+  },
+} as const;
+
+const fonts = configureFonts({
+  config: { ...baseVariants, ...customVariants },
+});
+
 /**
  * Default app theme, custom props and be defined here.
  */
@@ -20,8 +45,10 @@ export const defaultTheme: MD3Theme & CustomThemeProps = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: "#2e4882",
+    primary: "#419ED7",
     onPrimary: "#fff",
+    secondary: "#B0CCDE",
+    onSecondary: "#111",
     background: "#372775",
     onBackground: "#fff",
     primaryContainer: "#2B1D62",
@@ -31,6 +58,7 @@ export const defaultTheme: MD3Theme & CustomThemeProps = {
     info: "#419ED7",
     onInfo: "#fff",
   },
+  fonts: fonts,
   roundness: 0,
   spacing: (factor) => factor * 8,
 };
