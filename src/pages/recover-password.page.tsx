@@ -26,7 +26,7 @@ const RecoverPasswordPage = () => {
       }}
     >
       <Text style={{ color: theme.colors.onBackground }} variant="bodyMedium">
-        Informe seu e-mail abaixo para recuperar sua senha:{" "}
+        E-mail:{" "}
       </Text>
       <Controller
         control={control}

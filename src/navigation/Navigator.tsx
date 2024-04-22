@@ -9,6 +9,7 @@ import { SyAppbar } from "../components/ui/appbar/Sy.Appbar";
 import CreateAccountPage from "../pages/create-account.page";
 import { AppRoot } from "./AppRoot";
 import RecoverPasswordPage from "../pages/recover-password.page";
+import SearchActions from "../pages/search-actions";
 
 const Stack = createNativeStackNavigator<RootParamList>();
 
@@ -37,6 +38,11 @@ export const Navigator = () => {
         name="Recover Password"
         component={RecoverPasswordPage}
         options={{ title: "Recuperar Senha" }}
+      />
+      <Stack.Screen
+        name="Search Actions"
+        component={SearchActions}
+        options={{ title: "Ações de Pesquisa" }}
       />
       <Stack.Screen
         name="Root"

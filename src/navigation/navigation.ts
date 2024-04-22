@@ -9,6 +9,7 @@ export type RootParamList = {
   Login: undefined;
   "Create Account": undefined;
   "Recover Password": undefined;
+  "Search Actions": undefined;
   Root: undefined;
 };
 
