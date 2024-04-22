@@ -36,7 +36,7 @@ export const AppRoot = () => {
       <Drawer.Screen
         name="Research Actions"
         component={ResearchActions}
-        options={{ title: "Ações de Pesquisa" }}
+        options={{ headerTitle: "Ações de Pesquisa" }}
       />
     </Drawer.Navigator>
   );
