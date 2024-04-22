@@ -22,12 +22,9 @@ const RecoverPasswordPage = () => {
       style={{
         marginTop: "auto",
         marginBottom: "auto",
-        gap: theme.spacing(1),
+        gap: theme.spacing(2),
       }}
     >
-      <Text style={{ color: theme.colors.onBackground }} variant="bodyMedium">
-        E-mail:{" "}
-      </Text>
       <Controller
         control={control}
         name="email"
@@ -49,8 +46,13 @@ const RecoverPasswordPage = () => {
           />
         )}
       />
-      <Button onPress={() => submit()} mode="contained">
-        Enviar
+      <Button
+        onPress={() => submit()}
+        mode="contained"
+        buttonColor={theme.colors.success}
+        textColor={theme.colors.onSuccess}
+      >
+        Recuperar
       </Button>
     </Container>
   );
