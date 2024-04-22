@@ -20,6 +20,16 @@ const HomePage = () => {
       <Button onPress={() => navigate("Login")} mode="contained">
         Sign out
       </Button>
+      <Button
+        onPress={() =>
+          navigate("Research Actions", {
+            research: { date: "21/04/2023", imgSourcePath: "", title: "Tile" },
+          })
+        }
+        mode="contained"
+      >
+        Test Research Action
+      </Button>
     </Container>
   );
 };

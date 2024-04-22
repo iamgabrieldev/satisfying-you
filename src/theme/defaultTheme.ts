@@ -16,6 +16,9 @@ type CustomThemeProps = {
    * This is used to define margin and padding consistently for all components.
    */
   spacing: (factor: number) => number;
+  shape: {
+    borderRadius: number;
+  };
 };
 
 const baseFont = {
@@ -61,6 +64,9 @@ export const defaultTheme: MD3Theme & CustomThemeProps = {
   fonts: fonts,
   roundness: 0,
   spacing: (factor) => factor * 8,
+  shape: {
+    borderRadius: 8,
+  },
 };
 
 export type AppTheme = typeof defaultTheme;

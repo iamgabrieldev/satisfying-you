@@ -1,20 +1,24 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { Research } from "../components/research/research-types";
+import { DrawerScreenProps } from "@react-navigation/drawer";
+
 /**
  * Defines all navigations and params that can be passed.
  * ```Undefined``` means that the navigation doesn't take any params, but it's still defined.
  * @see {@link https://reactnavigation.org/docs/typescript/#type-checking-the-navigator}
  */
-export type RootStackParamList = RootParamList & AppParamList;
+export type RootStackParamList = PreAuthParamList & AppParamList;
 
-export type RootParamList = {
+export type PreAuthParamList = {
   Login: undefined;
   "Create Account": undefined;
   "Recover Password": undefined;
-  "Search Actions": undefined;
   Root: undefined;
 };
 
 export type AppParamList = {
   Home: undefined;
+  "Research Actions": { research: Research };
 };
 
 /**
@@ -26,3 +30,21 @@ declare global {
     interface RootParamList extends RootStackParamList {}
   }
 }
+
+/** Export types for each individual screens. */
+export type LoginProps = NativeStackScreenProps<RootStackParamList, "Login">;
+export type CreateAccountProps = NativeStackScreenProps<
+  RootStackParamList,
+  "Create Account"
+>;
+export type RecoverPasswordProps = NativeStackScreenProps<
+  RootStackParamList,
+  "Recover Password"
+>;
+export type RootProps = NativeStackScreenProps<RootStackParamList, "Root">;
+
+export type HomeProps = DrawerScreenProps<AppParamList, "Home">;
+export type ResearchActionsProps = DrawerScreenProps<
+  AppParamList,
+  "Research Actions"
+>;

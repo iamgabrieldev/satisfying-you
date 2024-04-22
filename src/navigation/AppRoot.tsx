@@ -4,7 +4,7 @@ import { AppParamList } from "./navigation";
 import { useAppTheme } from "../theme/defaultTheme";
 import { RootAppbar } from "../components/ui/appbar/RootAppbar";
 import { RootDrawerContent } from "../components/ui/appbar/RootDrawerContent";
-import { Text } from "react-native-paper";
+import ResearchActions from "../pages/search-actions";
 
 const Drawer = createDrawerNavigator<AppParamList>();
 
@@ -32,6 +32,11 @@ export const AppRoot = () => {
         options={{
           headerTitle: "",
         }}
+      />
+      <Drawer.Screen
+        name="Research Actions"
+        component={ResearchActions}
+        options={{ title: "Ações de Pesquisa" }}
       />
     </Drawer.Navigator>
   );

@@ -1,73 +1,58 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { DefaultSquareDiv } from '../components/defaultSquareDiv';
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { ResearchActionsProps } from "../navigation/navigation";
+import { ResearchAction } from "../components/research/ResearchAction";
+import { useAppTheme } from "../theme/defaultTheme";
+import { ScrollView } from "react-native-gesture-handler";
 
-type AcoesPesquisaProps = {
-  navigation: any; // Ou substitua por um tipo de navegação específico se estiver usando React Navigation
-};
+const ResearchActions = ({ route, navigation }: ResearchActionsProps) => {
+  const theme = useAppTheme();
+  const research = route.params.research;
 
-const SearchActions: React.FC<AcoesPesquisaProps> = (props) => {
-  const goToModificarPesquisa = () => {
-    props.navigation.navigate('ModificarPesquisa');
+  const goToModifyResearch = () => {
+    // TODO: Handle modify research navigation.
   };
 
-  const goToColeta = () => {
-    props.navigation.navigate('Coleta');
+  const goToCollect = () => {
+    // TODO: Handle collect research navigation.
   };
 
-  const goToRelatorio = () => {
-    props.navigation.navigate('Relatorio');
+  const goToReport = () => {
+    // TODO: Handle research retpor navigation.
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.squaresContainer}>
-        <DefaultSquareDiv
-          style={styles.div}
-          textColor="#FFFFFF"
-          text="Modificar"
-          imageSource={require('../assets/images/modificarImg.png')}
-          onPress={goToModificarPesquisa}
-        />
-        <DefaultSquareDiv
-          style={styles.div}
-          textColor="#FFFFFF"
-          text="Coletar dados"
-          imageSource={require('../assets/images/ColetarDadosImg.png')}
-          onPress={goToColeta}
-        />
-        <DefaultSquareDiv
-          style={styles.div}
-          textColor="#FFFFFF"
-          text="Relatório"
-          imageSource={require('../assets/images/RelatorioImg.png')}
-          onPress={goToRelatorio}
-        />
-      </View>
-    </View>
+    <ScrollView
+      style={{
+        marginTop: theme.spacing(2),
+        marginBottom: theme.spacing(2),
+      }}
+      contentContainerStyle={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: theme.spacing(2),
+        height: "100%",
+      }}
+    >
+      <ResearchAction
+        title="Modificar"
+        imgSource={require("../assets/images/modificarImg.png")}
+        onClick={goToModifyResearch}
+      />
+      <ResearchAction
+        title="Coletar dados"
+        imgSource={require("../assets/images/ColetarDadosImg.png")}
+        onClick={goToCollect}
+      />
+      <ResearchAction
+        title="Relatório"
+        imgSource={require("../assets/images/RelatorioImg.png")}
+        onClick={goToReport}
+      />
+    </ScrollView>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#372775',
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 20,
-  },
-  squaresContainer: {
-    flexDirection: 'column',
-    gap: 20,
-  },
-  div: {
-    backgroundColor: '#312464',
-    width: 200,
-    height: 200,
-    marginLeft: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
-export default SearchActions;
+export default ResearchActions;
