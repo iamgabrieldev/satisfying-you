@@ -14,7 +14,8 @@ export const Container = ({ children, ...props }: ContainerProps) => {
     <View
       {...props}
       style={{
-        marginTop: theme.spacing(3),
+        marginTop: "auto",
+        marginBottom: "auto",
         marginStart: theme.spacing(3),
         marginEnd: theme.spacing(3),
         // This needs to be cast as object for some weird reason

@@ -1,11 +1,8 @@
-import {
-  createNativeStackNavigator,
-  NativeStackNavigationOptions,
-} from "@react-navigation/native-stack";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { RootParamList } from "./navigation";
 import { useAppTheme } from "../theme/defaultTheme";
 import LoginPage from "../pages/login.page";
-import { SyAppbar } from "../components/ui/appbar/Sy.Appbar";
+import { UserAppbar } from "../components/ui/appbar/UserAppbar";
 import CreateAccountPage from "../pages/create-account.page";
 import { AppRoot } from "./AppRoot";
 import RecoverPasswordPage from "../pages/recover-password.page";
@@ -21,7 +18,7 @@ export const Navigator = () => {
       initialRouteName="Login"
       screenOptions={{
         contentStyle: { backgroundColor: theme.colors.background },
-        header: (props) => <SyAppbar {...props} />,
+        header: (props) => <UserAppbar {...props} />,
       }}
     >
       <Stack.Screen

@@ -8,7 +8,15 @@ const Email = () => {
     <Controller
       control={control}
       name="email"
-      rules={{ required: ValidationMessages.REQUIRED_EMAIL }}
+      rules={{
+        required: ValidationMessages.REQUIRED_EMAIL,
+        validate: {
+          isValid: (value) =>
+            /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(value)
+              ? true
+              : ValidationMessages.INVALID_EMAIL,
+        },
+      }}
       render={({ field, fieldState }) => (
         <TextField
           label="Email"

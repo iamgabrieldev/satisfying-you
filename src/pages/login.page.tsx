@@ -12,7 +12,7 @@ const LoginPage = () => {
   return (
     <View style={{ height: "100%" }}>
       <SatisfyingYouLogo />
-      <Container>
+      <Container style={{ gap: theme.spacing(8) }}>
         <LoginForm />
         <View
           style={{
@@ -22,7 +22,12 @@ const LoginPage = () => {
           <Button mode="contained" onPress={() => navigate("Create Account")}>
             Criar minha conta
           </Button>
-          <Button mode="contained" onPress={() => navigate("Recover Password")}>
+          <Button
+            mode="contained"
+            onPress={() => navigate("Recover Password")}
+            style={{ backgroundColor: theme.colors.secondary }}
+            textColor={theme.colors.onSecondary}
+          >
             Esqueci minha senha
           </Button>
         </View>
