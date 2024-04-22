@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { RootParamList } from "./navigation";
+import { PreAuthParamList } from "./navigation";
 import { useAppTheme } from "../theme/defaultTheme";
 import LoginPage from "../pages/login.page";
 import { UserAppbar } from "../components/ui/appbar/UserAppbar";
@@ -7,7 +7,7 @@ import CreateAccountPage from "../pages/create-account.page";
 import { AppRoot } from "./AppRoot";
 import RecoverPasswordPage from "../pages/recover-password.page";
 
-const Stack = createNativeStackNavigator<RootParamList>();
+const Stack = createNativeStackNavigator<PreAuthParamList>();
 
 export const Navigator = () => {
   const theme = useAppTheme();
