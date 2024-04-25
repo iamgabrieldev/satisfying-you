@@ -1,39 +1,61 @@
+import * as React from 'react';
 import { useAppTheme } from "../theme/defaultTheme";
-import { Button, Text } from "react-native-paper";
+import { Button, Searchbar } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import { Container } from "../components/ui/Container";
+import { CardAction } from '../components/cards/CardsAction';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const HomePage = () => {
   const theme = useAppTheme();
   const { navigate } = useNavigation();
+  const [searchQuery, setSearchQuery] = React.useState('');
+
+  const goToCard = () => {
+    navigate("Research Actions", {
+      research: { date: "21/04/2023", imgSourcePath: "", title: "Tile" },
+    })
+  };
+
   return (
-    <Container style={{ gap: theme.spacing(2) }}>
-      <Text
-        style={{
-          textAlign: "center",
-          color: theme.colors.onBackground,
-        }}
-        variant="headlineMedium"
-      >
-        Home Page!
-      </Text>
-      <Button onPress={() => navigate("Login")} mode="contained">
-        Sign out
-      </Button>
-      <Button
-        onPress={() =>
-          navigate("Research Actions", {
-            research: { date: "21/04/2023", imgSourcePath: "", title: "Tile" },
-          })
-        }
-        mode="contained"
-      >
-        Test Research Action
-      </Button>
-      <Button onPress={()=> navigate("New Research")} mode="contained">
-        Nova Pesquisa
-      </Button>
-    </Container>
+    <ScrollView style={{ marginTop: 20, marginBottom: 20 }}>
+      <Container style={{ gap: theme.spacing(2) }}>
+        <Searchbar
+          placeholder="Insira o termo de busca"
+          style={{marginBottom: 30 }}
+          onChangeText={setSearchQuery}
+          value={searchQuery}
+        />
+
+        <CardAction
+          title="SECOMP 2023"
+          date="10/10/2023"
+          imgSource={require("../assets/images/secomp.png")}
+          onClick={goToCard}
+        />
+        <CardAction
+          title="UBUNTU 2022"
+          date="05/06/2022"
+          imgSource={require("../assets/images/ubuntu.png")}
+          onClick={goToCard}
+        />
+        <CardAction
+          title="MENINAS CPU"
+          date="01/04/2022"
+          imgSource={require("../assets/images/meninascpu.png")}
+          onClick={goToCard}
+        />
+        <Button
+          style={{marginTop: 30, backgroundColor: theme.colors.success }}
+          onPress={() =>
+            navigate("Report Page")
+          }
+          mode="contained"
+        >
+          NOVA PESQUISA
+        </Button>
+      </Container>
+    </ScrollView>
   );
 };
 

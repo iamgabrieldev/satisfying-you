@@ -15,6 +15,7 @@ export type PreAuthParamList = {
   "Recover Password": undefined;
   "Collect": undefined;
   "Thanks Participation": undefined;
+  "Report Page": undefined;
   Root: undefined;
 };
 
@@ -53,3 +54,7 @@ export type ResearchActionsProps = DrawerScreenProps<
 >;
 
 export type NewResearchProps = DrawerScreenProps<AppParamList, "New Research">;
+export type ReportProps = NativeStackScreenProps<
+  RootStackParamList,
+  "Report Page"
+>;

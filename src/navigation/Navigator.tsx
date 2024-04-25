@@ -8,6 +8,7 @@ import { AppRoot } from "./AppRoot";
 import RecoverPasswordPage from "../pages/recover-password.page";
 import CollectPage from "../pages/collect.page";
 import ThanksParticipationPage from "../pages/thanks-participation.page";
+import ReportPage from "../pages/report.page";
 
 const Stack = createNativeStackNavigator<PreAuthParamList>();
 
@@ -46,6 +47,11 @@ export const Navigator = () => {
         name="Thanks Participation"
         component={ThanksParticipationPage}
         options={{ title: "Obrigado pela participação", headerShown: false}}
+      />
+      <Stack.Screen
+        name="Report Page"
+        component={ReportPage}
+        options={{ title: "Relatório" }}
       />
       <Stack.Screen
         name="Root"
