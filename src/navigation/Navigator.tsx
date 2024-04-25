@@ -6,6 +6,7 @@ import { UserAppbar } from "../components/ui/appbar/UserAppbar";
 import CreateAccountPage from "../pages/create-account.page";
 import { AppRoot } from "./AppRoot";
 import RecoverPasswordPage from "../pages/recover-password.page";
+import ReportPage from "../pages/report.page";
 
 const Stack = createNativeStackNavigator<PreAuthParamList>();
 
@@ -34,6 +35,11 @@ export const Navigator = () => {
         name="Recover Password"
         component={RecoverPasswordPage}
         options={{ title: "Recuperar Senha" }}
+      />
+      <Stack.Screen
+        name="Report Page"
+        component={ReportPage}
+        options={{ title: "Relatório" }}
       />
       <Stack.Screen
         name="Root"
