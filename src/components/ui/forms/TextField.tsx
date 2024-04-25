@@ -12,6 +12,7 @@ export type TextFieldProps = {
   label?: string;
   labelStyle?: StyleProp<TextStyle>;
   helperText?: string;
+  dataText?: boolean;
   isError?: boolean;
   value?: string;
   onChange?: (newText: string) => void;
@@ -26,6 +27,7 @@ export const TextField = forwardRef<NativeTextInput, TextFieldProps>(
       labelStyle,
       helperText,
       isError,
+      dataText = false,
       value,
       onChange,
       fullWidth = true,
@@ -51,6 +53,7 @@ export const TextField = forwardRef<NativeTextInput, TextFieldProps>(
           ref={forwardedRef}
           value={value}
           onChangeText={onChange}
+          right={dataText ? <TextInput.Icon icon="calendar" /> : ""}
         />
         {helperText && (
           <HelperText visible={isError} type="error">

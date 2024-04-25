@@ -17,13 +17,13 @@ export type PreAuthParamList = {
   "Thanks Participation": undefined;
   "Report Page": undefined;
   "Modified Research": undefined;
+  "New Research": undefined;
   Root: undefined;
 };
 
 export type AppParamList = {
   Home: undefined;
   "Research Actions": { research: Research };
-  "New Research": undefined;
 };
 
 /**
@@ -54,7 +54,7 @@ export type ResearchActionsProps = DrawerScreenProps<
   "Research Actions"
 >;
 
-export type NewResearchProps = DrawerScreenProps<AppParamList, "New Research">;
+export type NewResearchProps = NativeStackScreenProps<RootStackParamList, "New Research">;
 export type ReportProps = NativeStackScreenProps<
   RootStackParamList,
   "Report Page"

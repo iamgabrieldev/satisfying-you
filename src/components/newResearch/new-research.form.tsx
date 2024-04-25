@@ -13,6 +13,10 @@ export const NewResearchForm = () => {
   const { navigate } = useNavigation();
   const theme = useAppTheme();
 
+  const submit = handleSubmit((formData) => {
+    navigate("Root");
+  });
+
   return (
     <FormProvider {...form}>
       <View
@@ -28,6 +32,7 @@ export const NewResearchForm = () => {
           mode="contained"
           buttonColor={theme.colors.success}
           textColor={theme.colors.onSuccess}
+          onPress={() => submit()}
         >
           Cadastrar
         </Button>

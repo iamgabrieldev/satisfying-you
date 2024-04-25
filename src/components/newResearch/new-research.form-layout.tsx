@@ -24,13 +24,22 @@ const Name = () => {
 };
 
 const Data = () => {
+  const { control } = useFormContext<NewResearchFormFields>();
   return (
-    <>
-      <Text style={{color: "#fff"}}>
-        Data
-      </Text>
-      <TextInput right={<TextInput.Icon icon="calendar" />} />
-    </>
+    <Controller
+      control={control}
+      name="data"
+      rules={{ required: ValidationMessages.REQUIRED_DATE_RESEARCH }}
+      render={({ field, fieldState }) => (
+        <TextField
+          label="Data"
+          {...field}
+          isError={fieldState.error ? true : false}
+          dataText={true}
+          helperText={fieldState.error?.message}
+        />
+      )}
+    />
   );
 };
 
