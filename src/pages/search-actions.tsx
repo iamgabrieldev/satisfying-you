@@ -4,10 +4,12 @@ import { ResearchActionsProps } from "../navigation/navigation";
 import { ResearchAction } from "../components/research/ResearchAction";
 import { useAppTheme } from "../theme/defaultTheme";
 import { ScrollView } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
 const ResearchActions = ({ route, navigation }: ResearchActionsProps) => {
   const theme = useAppTheme();
   const research = route.params.research;
+  const { navigate } = useNavigation();
 
   const goToModifyResearch = () => {
     // TODO: Handle modify research navigation.
@@ -15,6 +17,7 @@ const ResearchActions = ({ route, navigation }: ResearchActionsProps) => {
 
   const goToCollect = () => {
     // TODO: Handle collect research navigation.
+    navigate("Collect")
   };
 
   const goToReport = () => {

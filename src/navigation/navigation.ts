@@ -13,12 +13,15 @@ export type PreAuthParamList = {
   Login: undefined;
   "Create Account": undefined;
   "Recover Password": undefined;
+  "Collect": undefined;
+  "Thanks Participation": undefined;
   Root: undefined;
 };
 
 export type AppParamList = {
   Home: undefined;
   "Research Actions": { research: Research };
+  "New Research": undefined;
 };
 
 /**
@@ -48,3 +51,5 @@ export type ResearchActionsProps = DrawerScreenProps<
   AppParamList,
   "Research Actions"
 >;
+
+export type NewResearchProps = DrawerScreenProps<AppParamList, "New Research">;

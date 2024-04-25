@@ -30,6 +30,9 @@ const HomePage = () => {
       >
         Test Research Action
       </Button>
+      <Button onPress={()=> navigate("New Research")} mode="contained">
+        Nova Pesquisa
+      </Button>
     </Container>
   );
 };
