@@ -48,7 +48,7 @@ const HomePage = () => {
         <Button
           style={{marginTop: 30, backgroundColor: theme.colors.success }}
           onPress={() =>
-            navigate("Report Page")
+            navigate("New Research")
           }
           mode="contained"
         >

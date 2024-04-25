@@ -13,7 +13,11 @@ export type PreAuthParamList = {
   Login: undefined;
   "Create Account": undefined;
   "Recover Password": undefined;
+  "Collect": undefined;
+  "Thanks Participation": undefined;
   "Report Page": undefined;
+  "Modified Research": undefined;
+  "New Research": undefined;
   Root: undefined;
 };
 
@@ -49,6 +53,8 @@ export type ResearchActionsProps = DrawerScreenProps<
   AppParamList,
   "Research Actions"
 >;
+
+export type NewResearchProps = NativeStackScreenProps<RootStackParamList, "New Research">;
 export type ReportProps = NativeStackScreenProps<
   RootStackParamList,
   "Report Page"
