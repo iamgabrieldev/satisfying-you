@@ -13,11 +13,6 @@ export const NewResearchForm = () => {
   const { navigate } = useNavigation();
   const theme = useAppTheme();
 
-  const submit = handleSubmit((formData) => {
-    // TODO: Handle create account
-    navigate("Login");
-  });
-
   return (
     <FormProvider {...form}>
       <View
@@ -28,9 +23,8 @@ export const NewResearchForm = () => {
       >
         <NewResearchFormLayout.Name />
         <NewResearchFormLayout.Data />
-        <NewResearchFormLayout.Image />
+        <NewResearchFormLayout.ImageInput />
         <Button
-          onPress={() => submit()}
           mode="contained"
           buttonColor={theme.colors.success}
           textColor={theme.colors.onSuccess}

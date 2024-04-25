@@ -13,6 +13,7 @@ const ResearchActions = ({ route, navigation }: ResearchActionsProps) => {
 
   const goToModifyResearch = () => {
     // TODO: Handle modify research navigation.
+    navigate("Modified Research")
   };
 
   const goToCollect = () => {

@@ -16,6 +16,7 @@ export type PreAuthParamList = {
   "Collect": undefined;
   "Thanks Participation": undefined;
   "Report Page": undefined;
+  "Modified Research": undefined;
   Root: undefined;
 };
 

@@ -9,6 +9,7 @@ import RecoverPasswordPage from "../pages/recover-password.page";
 import CollectPage from "../pages/collect.page";
 import ThanksParticipationPage from "../pages/thanks-participation.page";
 import ReportPage from "../pages/report.page";
+import ModifiedResearch from "../pages/modified-research";
 
 const Stack = createNativeStackNavigator<PreAuthParamList>();
 
@@ -42,6 +43,11 @@ export const Navigator = () => {
         name="Collect"
         component={CollectPage}
         options={{ title: "Coleta" }}
+      />
+      <Stack.Screen
+        name="Modified Research"
+        component={ModifiedResearch}
+        options={{ title: "Modificar Pesquisa" }}
       />
       <Stack.Screen
         name="Thanks Participation"

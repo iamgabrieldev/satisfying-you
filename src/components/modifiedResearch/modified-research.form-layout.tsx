@@ -5,7 +5,7 @@ import { Text, TextInput } from "react-native-paper";
 import { Image } from "react-native";
 
 const Name = () => {
-  const { control } = useFormContext<NewResearchFormFields>();
+  const { control } = useFormContext<ModifiedResearchFormFields>();
   return (
     <Controller
       control={control}
@@ -29,7 +29,7 @@ const Data = () => {
       <Text style={{color: "#fff"}}>
         Data
       </Text>
-      <TextInput right={<TextInput.Icon icon="calendar" />} />
+      <TextInput value="10/10/2023" right={<TextInput.Icon icon="calendar" />} />
     </>
   );
 };
@@ -38,28 +38,28 @@ const ImageInput = () => {
   return (
     <>
       <Text style={{color: "#fff"}}>Imagem</Text>
-      <Image source={require("../../assets/images/formVazio.png")} />
+      <Image source={require("../../assets/images/formImg.png")} />
     </>
   );
 };
 
-export type NewResearchFormFields = {
+export type ModifiedResearchFormFields = {
   name: string;
   data: string;
   image: any;
 };
 
-const defaultValues: NewResearchFormFields = {
-  name: "",
-  data: "",
+const defaultValues: ModifiedResearchFormFields = {
+  name: "Ubuntu 2022",
+  data: "10/10/2023",
   image: undefined,         
 };
 
-const NewResearchFormLayout = {
+const ModifiedResearchFormLayout = {
   Name,
   Data,
   ImageInput,
   defaultValues,
 };
 
-export default NewResearchFormLayout;
+export default ModifiedResearchFormLayout;
