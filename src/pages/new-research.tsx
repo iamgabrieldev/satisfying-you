@@ -6,12 +6,10 @@ import { View } from "react-native";
 const NewResearch = ({ route, navigation }: any) => {
   const theme = useAppTheme();
   return (
-    <View
-        style={{margin: theme.spacing(2)}}
-    >
-        <NewResearchForm />
+    <View style={{ margin: theme.spacing(2) }}>
+      <NewResearchForm />
     </View>
-  )
-}
+  );
+};
 
 export default NewResearch;

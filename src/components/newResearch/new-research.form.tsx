@@ -3,7 +3,9 @@ import { useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
 import { useAppTheme } from "../../theme/defaultTheme";
 import { Button } from "react-native-paper";
-import NewResearchFormLayout, { NewResearchFormFields } from "./new-research.form-layout";
+import NewResearchFormLayout, {
+  NewResearchFormFields,
+} from "./new-research.form-layout";
 
 export const NewResearchForm = () => {
   const form = useForm<NewResearchFormFields>({

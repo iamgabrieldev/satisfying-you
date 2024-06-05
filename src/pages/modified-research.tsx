@@ -6,12 +6,10 @@ import { ModifiedResearchForm } from "../components/modifiedResearch/modified-re
 const ModifiedResearch = ({ route, navigation }: any) => {
   const theme = useAppTheme();
   return (
-    <View
-        style={{margin: theme.spacing(2)}}
-    >
-        <ModifiedResearchForm />
+    <View style={{ margin: theme.spacing(2) }}>
+      <ModifiedResearchForm />
     </View>
-  )
-}
+  );
+};
 
 export default ModifiedResearch;

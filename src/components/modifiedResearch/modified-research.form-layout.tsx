@@ -47,7 +47,7 @@ const Data = () => {
 const ImageInput = () => {
   return (
     <>
-      <Text style={{color: "#fff"}}>Imagem</Text>
+      <Text style={{ color: "#fff" }}>Imagem</Text>
       <Image source={require("../../assets/images/formImg.png")} />
     </>
   );
@@ -62,7 +62,7 @@ export type ModifiedResearchFormFields = {
 const defaultValues: ModifiedResearchFormFields = {
   name: "Ubuntu 2022",
   data: "10/10/2023",
-  image: undefined,         
+  image: undefined,
 };
 
 const ModifiedResearchFormLayout = {

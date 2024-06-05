@@ -13,16 +13,16 @@ const ResearchActions = ({ route, navigation }: ResearchActionsProps) => {
 
   const goToModifyResearch = () => {
     // TODO: Handle modify research navigation.
-    navigate("Modified Research")
+    navigate("Modified Research");
   };
 
   const goToCollect = () => {
     // TODO: Handle collect research navigation.
-    navigate("Collect")
+    navigate("Collect");
   };
 
   const goToReport = () => {
-    navigate("Report Page")
+    navigate("Report Page");
   };
 
   return (
@@ -40,21 +40,21 @@ const ResearchActions = ({ route, navigation }: ResearchActionsProps) => {
         height: "100%",
       }}
     >
-        <ResearchAction
-          title="Modificar"
-          imgSource={require("../assets/images/modificarImg.png")}
-          onClick={goToModifyResearch}
-        />
-        <ResearchAction
-          title="Coletar dados"
-          imgSource={require("../assets/images/ColetarDadosImg.png")}
-          onClick={goToCollect}
-        />
-        <ResearchAction
-          title="Relatório"
-          imgSource={require("../assets/images/RelatorioImg.png")}
-          onClick={goToReport}
-        />
+      <ResearchAction
+        title="Modificar"
+        imgSource={require("../assets/images/modificarImg.png")}
+        onClick={goToModifyResearch}
+      />
+      <ResearchAction
+        title="Coletar dados"
+        imgSource={require("../assets/images/ColetarDadosImg.png")}
+        onClick={goToCollect}
+      />
+      <ResearchAction
+        title="Relatório"
+        imgSource={require("../assets/images/RelatorioImg.png")}
+        onClick={goToReport}
+      />
     </ScrollView>
   );
 };

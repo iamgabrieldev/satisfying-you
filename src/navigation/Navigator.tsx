@@ -45,8 +45,8 @@ export const Navigator = () => {
         component={CollectPage}
         options={{ title: "Coleta" }}
       />
-      <Stack.Screen 
-        name="New Research" 
+      <Stack.Screen
+        name="New Research"
         component={NewResearch}
         options={{ title: "Nova Pesquisa" }}
       />
@@ -58,7 +58,7 @@ export const Navigator = () => {
       <Stack.Screen
         name="Thanks Participation"
         component={ThanksParticipationPage}
-        options={{ title: "Obrigado pela participação", headerShown: false}}
+        options={{ title: "Obrigado pela participação", headerShown: false }}
       />
       <Stack.Screen
         name="Report Page"

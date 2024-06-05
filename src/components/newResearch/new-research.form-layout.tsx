@@ -46,7 +46,7 @@ const Data = () => {
 const ImageInput = () => {
   return (
     <>
-      <Text style={{color: "#fff"}}>Imagem</Text>
+      <Text style={{ color: "#fff" }}>Imagem</Text>
       <Image source={require("../../assets/images/formVazio.png")} />
     </>
   );
@@ -61,7 +61,7 @@ export type NewResearchFormFields = {
 const defaultValues: NewResearchFormFields = {
   name: "",
   data: "",
-  image: undefined,         
+  image: undefined,
 };
 
 const NewResearchFormLayout = {

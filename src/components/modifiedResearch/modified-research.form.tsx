@@ -1,10 +1,12 @@
-import * as React from 'react';
-import { Modal, Text, Button, Portal } from 'react-native-paper';
+import * as React from "react";
+import { Modal, Text, Button, Portal } from "react-native-paper";
 import { FormProvider, useForm } from "react-hook-form";
 import { Image, TouchableOpacity, View } from "react-native";
 import { useAppTheme } from "../../theme/defaultTheme";
-import ModifiedResearchFormLayout, { ModifiedResearchFormFields } from "./modified-research.form-layout";
-import { useNavigation } from '@react-navigation/native';
+import ModifiedResearchFormLayout, {
+  ModifiedResearchFormFields,
+} from "./modified-research.form-layout";
+import { useNavigation } from "@react-navigation/native";
 
 export const ModifiedResearchForm = () => {
   const { navigate } = useNavigation();
@@ -18,7 +20,10 @@ export const ModifiedResearchForm = () => {
 
   const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);
-  const containerStyle = {backgroundColor: theme.colors.primaryContainer, padding: 20};
+  const containerStyle = {
+    backgroundColor: theme.colors.primaryContainer,
+    padding: 20,
+  };
 
   const submit = handleSubmit((formData) => {
     navigate("Root");
@@ -33,21 +38,25 @@ export const ModifiedResearchForm = () => {
         }}
       >
         <Portal>
-          <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>    
+          <Modal
+            visible={visible}
+            onDismiss={hideModal}
+            contentContainerStyle={containerStyle}
+          >
             <Text
-              style={{ 
-                textAlign: "center", 
-                color: theme.colors.onPrimaryContainer, 
-                fontSize: 30 
+              style={{
+                textAlign: "center",
+                color: theme.colors.onPrimaryContainer,
+                fontSize: 30,
               }}
             >
               Tem certeza de apagar essa pesquisa?
             </Text>
             <View
-              style={{ 
+              style={{
                 display: "flex",
                 flexDirection: "row",
-                justifyContent:"space-evenly",
+                justifyContent: "space-evenly",
                 alignItems: "baseline",
                 paddingTop: 15,
               }}
@@ -57,8 +66,8 @@ export const ModifiedResearchForm = () => {
                 buttonColor={"#FF8383"}
                 textColor={theme.colors.onPrimaryContainer}
                 onPress={hideModal}
-                style={{ width: "40%"}}
-                >
+                style={{ width: "40%" }}
+              >
                 SIM
               </Button>
               <Button
@@ -66,8 +75,8 @@ export const ModifiedResearchForm = () => {
                 buttonColor={"#3F92C5"}
                 textColor={theme.colors.onPrimaryContainer}
                 onPress={hideModal}
-                style={{ width: "40%"}}
-                >
+                style={{ width: "40%" }}
+              >
                 CANCELAR
               </Button>
             </View>
@@ -81,14 +90,14 @@ export const ModifiedResearchForm = () => {
           buttonColor={theme.colors.success}
           textColor={theme.colors.onSuccess}
           onPress={() => submit()}
-          >
+        >
           Salvar
         </Button>
         <TouchableOpacity
           style={{
             padding: theme.spacing(4),
             width: "40%",
-            justifyContent: "flex-start"
+            justifyContent: "flex-start",
           }}
           onPress={showModal}
         >
@@ -103,7 +112,11 @@ export const ModifiedResearchForm = () => {
           />
           <Text
             variant="displaySmall"
-            style={{ textAlign: "center", color: theme.colors.onPrimaryContainer, fontSize: 16 }}
+            style={{
+              textAlign: "center",
+              color: theme.colors.onPrimaryContainer,
+              fontSize: 16,
+            }}
           >
             Apagar
           </Text>
