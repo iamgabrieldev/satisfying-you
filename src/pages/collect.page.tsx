@@ -2,10 +2,11 @@ import { Text } from "react-native-paper";
 import { Container } from "../components/ui/Container";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
-import { useNavigation } from "@react-navigation/native";
+import { FC } from "react";
+import { CollectScreenProps } from "../navigation/navigation";
 
-const CollectPage = () => {
-  const { navigate } = useNavigation();
+const CollectPage: FC<CollectScreenProps> = ({ navigation }) => {
+  const { navigate } = navigation;
   return (
     <Container>
       <Text style={styles.title}>O que você achou do Carnaval 2024?</Text>

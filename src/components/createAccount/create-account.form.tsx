@@ -6,6 +6,8 @@ import { useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
 import { useAppTheme } from "../../theme/defaultTheme";
 import { Button } from "react-native-paper";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { firebaseAuth } from "../../firebase/config";
 
 export const CreateAccountForm = () => {
   const form = useForm<CreateAccountFormFields>({
@@ -16,8 +18,18 @@ export const CreateAccountForm = () => {
   const theme = useAppTheme();
 
   const submit = handleSubmit((formData) => {
-    // TODO: Handle create account
-    navigate("Login");
+    const { email, password } = formData;
+    createUserWithEmailAndPassword(firebaseAuth, email, password)
+      .then((userCredential) => {
+        // Signed up
+        const user = userCredential.user;
+        navigate("Root");
+      })
+      .catch((error) => {
+        console.log(error);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
   });
 
   return (

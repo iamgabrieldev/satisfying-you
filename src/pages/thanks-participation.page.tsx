@@ -1,10 +1,13 @@
 import { StyleSheet, View } from "react-native";
 import { Text } from "react-native-paper";
 import { Container } from "../components/ui/Container";
-import { useNavigation } from "@react-navigation/native";
+import { FC } from "react";
+import { ThanksParticipationScreenProps } from "../navigation/navigation";
 
-const ThanksParticipationPage = () => {
-  const { navigate } = useNavigation();
+const ThanksParticipationPage: FC<ThanksParticipationScreenProps> = ({
+  navigation,
+}) => {
+  const { navigate } = navigation;
 
   setTimeout(() => {
     navigate("Collect");

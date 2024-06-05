@@ -1,15 +1,15 @@
-import * as React from "react";
 import { useAppTheme } from "../theme/defaultTheme";
 import { Button, Searchbar } from "react-native-paper";
-import { useNavigation } from "@react-navigation/native";
 import { Container } from "../components/ui/Container";
 import { CardAction } from "../components/cards/CardsAction";
 import { ScrollView } from "react-native-gesture-handler";
+import { FC, useState } from "react";
+import { HomeScreenProps } from "../navigation/navigation";
 
-const HomePage = () => {
+const HomePage: FC<HomeScreenProps> = ({ navigation }) => {
   const theme = useAppTheme();
-  const { navigate } = useNavigation();
-  const [searchQuery, setSearchQuery] = React.useState("");
+  const { navigate } = navigation;
+  const [searchQuery, setSearchQuery] = useState("");
 
   const goToCard = () => {
     navigate("Research Actions", {

@@ -6,12 +6,17 @@ import { Divider, Drawer, Text } from "react-native-paper";
 import { useAppTheme } from "../../../theme/defaultTheme";
 import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { signOut } from "firebase/auth";
+import { firebaseAuth } from "../../../firebase/config";
 
 export const RootDrawerContent = ({
   ...props
 }: DrawerContentComponentProps) => {
   const theme = useAppTheme();
   const { navigate } = useNavigation();
+
+  const handleExit = async () => await signOut(firebaseAuth);
+
   return (
     <View
       style={{
@@ -59,7 +64,7 @@ export const RootDrawerContent = ({
         theme={{
           colors: { onSurfaceVariant: theme.colors.onPrimaryContainer },
         }}
-        onPress={() => navigate("Login")}
+        onPress={handleExit}
       />
     </View>
   );

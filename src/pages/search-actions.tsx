@@ -1,15 +1,18 @@
-import React from "react";
+import React, { FC } from "react";
 import { StyleSheet, View } from "react-native";
-import { ResearchActionsProps } from "../navigation/navigation";
+import { ResearchActionsScreenProps } from "../navigation/navigation";
 import { ResearchAction } from "../components/research/ResearchAction";
 import { useAppTheme } from "../theme/defaultTheme";
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
-const ResearchActions = ({ route, navigation }: ResearchActionsProps) => {
+const ResearchActions: FC<ResearchActionsScreenProps> = ({
+  route,
+  navigation,
+}) => {
   const theme = useAppTheme();
   const research = route.params.research;
-  const { navigate } = useNavigation();
+  const { navigate } = navigation;
 
   const goToModifyResearch = () => {
     // TODO: Handle modify research navigation.

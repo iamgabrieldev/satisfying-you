@@ -1,9 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 import { VictoryLegend, VictoryPie } from "victory-native";
 import { View } from "react-native";
 import { Container } from "../components/ui/Container";
+import { ReportScreenProps } from "../navigation/navigation";
 
-const ReportPage = () => {
+const ReportPage: FC<ReportScreenProps> = () => {
   return (
     <View style={{ height: "100%" }}>
       <Container>
