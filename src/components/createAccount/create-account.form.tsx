@@ -5,9 +5,11 @@ import CreateAccountFormLayout, {
 import { useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
 import { useAppTheme } from "../../theme/defaultTheme";
-import { Button } from "react-native-paper";
+import { Button, HelperText } from "react-native-paper";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { firebaseAuth } from "../../firebase/config";
+import { FirebaseError } from "firebase/app";
+import { useState } from "react";
 
 export const CreateAccountForm = () => {
   const form = useForm<CreateAccountFormFields>({
@@ -16,6 +18,7 @@ export const CreateAccountForm = () => {
   const { handleSubmit } = form;
   const { navigate } = useNavigation();
   const theme = useAppTheme();
+  const [error, setError] = useState<string | null>(null);
 
   const submit = handleSubmit((formData) => {
     const { email, password } = formData;
@@ -26,9 +29,9 @@ export const CreateAccountForm = () => {
         navigate("Root");
       })
       .catch((error) => {
-        console.log(error);
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        if (error instanceof FirebaseError) {
+          setError("Houve um problema o tentar criar a sua conta");
+        }
       });
   });
 
@@ -43,6 +46,11 @@ export const CreateAccountForm = () => {
         <CreateAccountFormLayout.Email />
         <CreateAccountFormLayout.Password />
         <CreateAccountFormLayout.RePassword />
+        {error && (
+          <HelperText type="error" style={{ textAlign: "center" }}>
+            {error}
+          </HelperText>
+        )}
         <Button
           onPress={() => submit()}
           mode="contained"

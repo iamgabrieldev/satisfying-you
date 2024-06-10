@@ -28,7 +28,7 @@ export const AppRoot: FC<RootScreenProps> = ({ navigation }) => {
     if (!user) {
       navigate("Login");
     }
-  }, []);
+  }, [user]);
 
   return (
     <Drawer.Navigator
