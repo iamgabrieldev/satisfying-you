@@ -1,17 +1,20 @@
-import {
-  DrawerContentComponentProps,
-  DrawerContentScrollView,
-} from "@react-navigation/drawer";
+import { DrawerContentComponentProps } from "@react-navigation/drawer";
 import { Divider, Drawer, Text } from "react-native-paper";
 import { useAppTheme } from "../../../theme/defaultTheme";
 import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { signOut } from "firebase/auth";
+import { firebaseAuth } from "../../../firebase/config";
+import { useFirebaseContext } from "../../../firebase/context";
 
 export const RootDrawerContent = ({
   ...props
 }: DrawerContentComponentProps) => {
   const theme = useAppTheme();
   const { navigate } = useNavigation();
+  const { user } = useFirebaseContext();
+  const handleExit = async () => await signOut(firebaseAuth);
+
   return (
     <View
       style={{
@@ -32,7 +35,7 @@ export const RootDrawerContent = ({
           }}
           variant="headlineSmall"
         >
-          user@domain.com
+          {user?.email}
         </Text>
         <Divider
           style={{
@@ -59,7 +62,7 @@ export const RootDrawerContent = ({
         theme={{
           colors: { onSurfaceVariant: theme.colors.onPrimaryContainer },
         }}
-        onPress={() => navigate("Login")}
+        onPress={handleExit}
       />
     </View>
   );

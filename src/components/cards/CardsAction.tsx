@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  Image,
-  ImageSourcePropType,
-} from "react-native";
+import { Image, ImageSourcePropType } from "react-native";
 import { Text, Card } from "react-native-paper";
 import { useAppTheme } from "../../theme/defaultTheme";
 
@@ -17,14 +14,14 @@ export const CardAction = ({
   onClick,
   imgSource: imgSourcePath,
   title,
-  date
+  date,
 }: CardActionProps) => {
   const theme = useAppTheme();
 
   return (
     <Card
       style={{
-        backgroundColor: 'white',
+        backgroundColor: "white",
         padding: theme.spacing(4),
         borderRadius: theme.shape.borderRadius,
         gap: theme.spacing(2),
@@ -43,7 +40,12 @@ export const CardAction = ({
       />
       <Text
         variant="displaySmall"
-        style={{ textAlign: "center", color: theme.colors.primary, fontSize: 36, marginTop: 20 }}
+        style={{
+          textAlign: "center",
+          color: theme.colors.primary,
+          fontSize: 36,
+          marginTop: 20,
+        }}
       >
         {title}
       </Text>

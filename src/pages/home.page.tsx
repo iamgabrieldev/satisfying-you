@@ -1,20 +1,20 @@
-import * as React from 'react';
 import { useAppTheme } from "../theme/defaultTheme";
 import { Button, Searchbar } from "react-native-paper";
-import { useNavigation } from "@react-navigation/native";
 import { Container } from "../components/ui/Container";
-import { CardAction } from '../components/cards/CardsAction';
-import { ScrollView } from 'react-native-gesture-handler';
+import { CardAction } from "../components/cards/CardsAction";
+import { ScrollView } from "react-native-gesture-handler";
+import { FC, useState } from "react";
+import { HomeScreenProps } from "../navigation/navigation";
 
-const HomePage = () => {
+const HomePage: FC<HomeScreenProps> = ({ navigation }) => {
   const theme = useAppTheme();
-  const { navigate } = useNavigation();
-  const [searchQuery, setSearchQuery] = React.useState('');
+  const { navigate } = navigation;
+  const [searchQuery, setSearchQuery] = useState("");
 
   const goToCard = () => {
     navigate("Research Actions", {
       research: { date: "21/04/2023", imgSourcePath: "", title: "Tile" },
-    })
+    });
   };
 
   return (
@@ -22,7 +22,7 @@ const HomePage = () => {
       <Container style={{ gap: theme.spacing(2) }}>
         <Searchbar
           placeholder="Insira o termo de busca"
-          style={{marginBottom: 30 }}
+          style={{ marginBottom: 30 }}
           onChangeText={setSearchQuery}
           value={searchQuery}
         />
@@ -46,10 +46,8 @@ const HomePage = () => {
           onClick={goToCard}
         />
         <Button
-          style={{marginTop: 30, backgroundColor: theme.colors.success }}
-          onPress={() =>
-            navigate("New Research")
-          }
+          style={{ marginTop: 30, backgroundColor: theme.colors.success }}
+          onPress={() => navigate("New Research")}
           mode="contained"
         >
           NOVA PESQUISA

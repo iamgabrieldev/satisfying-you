@@ -13,17 +13,17 @@ export type PreAuthParamList = {
   Login: undefined;
   "Create Account": undefined;
   "Recover Password": undefined;
-  "Collect": undefined;
-  "Thanks Participation": undefined;
-  "Report Page": undefined;
-  "Modified Research": undefined;
-  "New Research": undefined;
   Root: undefined;
 };
 
 export type AppParamList = {
   Home: undefined;
   "Research Actions": { research: Research };
+  Collect: undefined;
+  "Thanks Participation": undefined;
+  "Report Page": undefined;
+  "Modified Research": undefined;
+  "New Research": undefined;
 };
 
 /**
@@ -37,25 +37,42 @@ declare global {
 }
 
 /** Export types for each individual screens. */
-export type LoginProps = NativeStackScreenProps<RootStackParamList, "Login">;
-export type CreateAccountProps = NativeStackScreenProps<
-  RootStackParamList,
+export type LoginScreenProps = NativeStackScreenProps<
+  PreAuthParamList,
+  "Login"
+>;
+export type CreateAccountScreenProps = NativeStackScreenProps<
+  PreAuthParamList,
   "Create Account"
 >;
-export type RecoverPasswordProps = NativeStackScreenProps<
-  RootStackParamList,
+export type RecoverPasswordScreenProps = NativeStackScreenProps<
+  PreAuthParamList,
   "Recover Password"
 >;
-export type RootProps = NativeStackScreenProps<RootStackParamList, "Root">;
-
-export type HomeProps = DrawerScreenProps<AppParamList, "Home">;
-export type ResearchActionsProps = DrawerScreenProps<
+export type RootScreenProps = NativeStackScreenProps<PreAuthParamList, "Root">;
+/** Post-auth screens */
+export type HomeScreenProps = DrawerScreenProps<AppParamList, "Home">;
+export type ResearchActionsScreenProps = DrawerScreenProps<
   AppParamList,
   "Research Actions"
 >;
-
-export type NewResearchProps = NativeStackScreenProps<RootStackParamList, "New Research">;
-export type ReportProps = NativeStackScreenProps<
-  RootStackParamList,
+export type CollectScreenProps = NativeStackScreenProps<
+  AppParamList,
+  "Collect"
+>;
+export type ThanksParticipationScreenProps = NativeStackScreenProps<
+  AppParamList,
+  "Thanks Participation"
+>;
+export type ReportScreenProps = NativeStackScreenProps<
+  AppParamList,
   "Report Page"
+>;
+export type ModifiedResearchScreenProps = NativeStackScreenProps<
+  AppParamList,
+  "Modified Research"
+>;
+export type NewResearchScreenProps = NativeStackScreenProps<
+  AppParamList,
+  "New Research"
 >;

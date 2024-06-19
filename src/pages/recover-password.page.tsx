@@ -6,10 +6,14 @@ import { Button, Text } from "react-native-paper";
 import { useAppTheme } from "../theme/defaultTheme";
 import { Container } from "../components/ui/Container";
 import { ValidationMessages } from "../components/validation/Messages";
+import { FC } from "react";
+import { RecoverPasswordScreenProps } from "../navigation/navigation";
 
-const RecoverPasswordPage = () => {
+const RecoverPasswordPage: FC<RecoverPasswordScreenProps> = ({
+  navigation,
+}) => {
   const { control, handleSubmit } = useForm<{ email: string }>();
-  const { navigate } = useNavigation();
+  const { navigate } = navigation;
   const theme = useAppTheme();
 
   const submit = handleSubmit((formData) => {
