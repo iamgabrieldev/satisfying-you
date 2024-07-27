@@ -6,7 +6,7 @@ import { launchCamera, launchImageLibrary, Asset, ImageLibraryOptions, CameraOpt
 import React, { useState } from 'react';
 import { StyleSheet, View, Image as RNImage } from "react-native";
 
-// Defina o componente funcional onde os hooks serão usados
+
 const ImageInput = () => {
   const [urlFoto, setUrlFoto] = useState<string>('');
   const [foto, setFoto] = useState<Asset | null>(null);
