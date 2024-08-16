@@ -1,5 +1,5 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Research } from "../components/research/research-types";
+import { Research, Votes } from "../components/research/research-types";
 import { DrawerScreenProps } from "@react-navigation/drawer";
 
 /**
@@ -21,7 +21,7 @@ export type AppParamList = {
   "Research Actions": { research: Research };
   Collect: { id: any };
   "Thanks Participation": undefined;
-  "Report Page": { id: any };
+  "Report Page": { votes?: Votes };
   "Modified Research": { id: any };
   "New Research": undefined;
 };

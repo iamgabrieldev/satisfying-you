@@ -1,10 +1,9 @@
 import React, { FC } from "react";
-import { StyleSheet, View } from "react-native";
 import { ResearchActionsScreenProps } from "../navigation/navigation";
 import { ResearchAction } from "../components/research/ResearchAction";
 import { useAppTheme } from "../theme/defaultTheme";
 import { ScrollView } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
+import { getVotes } from "../data/getVotes";
 
 const ResearchActions: FC<ResearchActionsScreenProps> = ({
   route,
@@ -21,11 +20,12 @@ const ResearchActions: FC<ResearchActionsScreenProps> = ({
 
   const goToCollect = () => {
     // TODO: Handle collect research navigation.
-    navigate("Collect", { id: research.id});
+    navigate("Collect", { id: research.id });
   };
 
-  const goToReport = () => {
-    navigate("Report Page", { id: research.id });
+  const goToReport = async () => {
+    const votes = await getVotes(research.id);
+    navigate("Report Page", { votes });
   };
 
   return (
