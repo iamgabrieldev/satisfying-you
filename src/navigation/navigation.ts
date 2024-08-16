@@ -22,7 +22,7 @@ export type AppParamList = {
   Collect: undefined;
   "Thanks Participation": undefined;
   "Report Page": undefined;
-  "Modified Research": undefined;
+  "Modified Research": { id: string };
   "New Research": undefined;
 };
 

@@ -7,27 +7,92 @@ import ModifiedResearchFormLayout, {
   ModifiedResearchFormFields,
 } from "./modified-research.form-layout";
 import { useNavigation } from "@react-navigation/native";
+import { collection, deleteDoc, doc, getDoc, updateDoc } from "firebase/firestore";
+import { db } from "../../firebase/config";
 
-export const ModifiedResearchForm = () => {
+export const ModifiedResearchForm = (id: any) => {
   const { navigate } = useNavigation();
-  const form = useForm<ModifiedResearchFormFields>({
+  const [researchData, setResearchData] = React.useState<any>();
+
+  let form = useForm<ModifiedResearchFormFields>({
     defaultValues: ModifiedResearchFormLayout.defaultValues,
   });
-  const { handleSubmit } = form;
+  const { handleSubmit, reset } = form;
   const theme = useAppTheme();
 
   const [visible, setVisible] = React.useState(false);
 
   const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);
+  const removeResearch = async (id: any) => { 
+    console.log("Remove research");
+    try {
+      const docRef = doc(db, "pesquisas", id.id);
+      await deleteDoc(docRef);
+      console.log("Research removed successfully");
+    } catch (error) {
+      console.error("Error removing research: ", error);
+    } finally {
+      hideModal();
+      navigate('Home')
+    }
+  }
+
+
   const containerStyle = {
     backgroundColor: theme.colors.primaryContainer,
     padding: 20,
   };
 
+  const pesquisaCollection = collection(db, 'pesquisas')
+
   const submit = handleSubmit((formData) => {
-    navigate("Root");
-  });
+    const { nome, data } = formData;
+
+    const docPesquisa = {
+      nome: nome,
+      data: data,
+      votos: {
+        pessimo: 0,
+        ruim: 0,
+        neutro: 0,
+        bom: 0,
+        excelente: 0,
+      },
+    }
+
+    const docRef = doc(pesquisaCollection, id.id);
+      updateDoc(docRef, docPesquisa).then(() => {
+        console.log('Pesquisa atualizada com sucesso!');
+        reset(); // Limpa os campos do formulário
+        navigate('Home');
+      }).catch((error) => {
+        console.log('Erro ao atualizar pesquisa: ' + error);
+      });
+    });
+
+  const fetchResearchData = async (id: any) => {
+    try {
+      const docRef = doc(db, "pesquisas", id.id);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        const result = docSnap.data() as ModifiedResearchFormFields
+        console.log("Result: ", result)
+        reset({nome: result.nome, data: result.data, imageUrl: result.imageUrl});
+
+      } else {
+        console.log("No such document!");
+      }
+    } catch (error) {
+      console.error("Error fetching document: ", error);
+    }
+  };
+
+  React.useEffect(() => {
+    fetchResearchData(id);
+  }, [id]);
 
   return (
     <FormProvider {...form}>
@@ -65,7 +130,7 @@ export const ModifiedResearchForm = () => {
                 mode="contained"
                 buttonColor={"#FF8383"}
                 textColor={theme.colors.onPrimaryContainer}
-                onPress={hideModal}
+                onPress={() => removeResearch(id)}
                 style={{ width: "40%" }}
               >
                 SIM

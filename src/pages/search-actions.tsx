@@ -16,7 +16,7 @@ const ResearchActions: FC<ResearchActionsScreenProps> = ({
 
   const goToModifyResearch = () => {
     // TODO: Handle modify research navigation.
-    navigate("Modified Research");
+    navigate("Modified Research", { id: research.id });
   };
 
   const goToCollect = () => {

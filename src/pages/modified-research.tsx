@@ -9,9 +9,10 @@ const ModifiedResearch: FC<ModifiedResearchScreenProps> = ({
   navigation,
 }) => {
   const theme = useAppTheme();
+  const researchId = route.params.id;
   return (
     <View style={{ margin: theme.spacing(2) }}>
-      <ModifiedResearchForm />
+      <ModifiedResearchForm id={researchId} />
     </View>
   );
 };
