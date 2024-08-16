@@ -1,10 +1,43 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { VictoryLegend, VictoryPie } from "victory-native";
 import { View } from "react-native";
 import { Container } from "../components/ui/Container";
 import { ReportScreenProps } from "../navigation/navigation";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase/config";
 
-const ReportPage: FC<ReportScreenProps> = () => {
+const ReportPage: FC<ReportScreenProps> = ({route}) => {
+  const researchId = route.params.id;
+
+  const [votos, setVotos] = useState({
+    pessimo: 1,
+    ruim: 1,
+    neutro: 1,
+    bom: 1,
+    excelente: 1,
+  })
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const pesquisaRef = doc(db, 'pesquisas', researchId);
+        const docPesquisa = await getDoc(pesquisaRef);
+
+        if (docPesquisa.exists()) {
+            const votosData = docPesquisa.data().votos;
+            setVotos(votosData);
+            console.log('Votos:', votosData);
+        } else {
+            console.log('Documento não encontrado!');
+        }
+      } catch (error) {
+          console.log('Erro ao obter os votos:', error);
+      }
+    };
+
+    fetchData()
+  }, [researchId])
+
   return (
     <View style={{ height: "100%" }}>
       <Container>
@@ -13,11 +46,11 @@ const ReportPage: FC<ReportScreenProps> = () => {
           height={400}
           colorScale={["#F1CE7E", "#6994FE", "#5FCDA4", "#EA7288", "#53D8D8"]}
           data={[
-            { x: "Excelente", y: 35 },
-            { x: "Bom", y: 25 },
-            { x: "Neutro", y: 20 },
-            { x: "Ruim", y: 10 },
-            { x: "Péssimo", y: 10 },
+            { x: "Excelente", y: votos.excelente },
+            { x: "Bom", y: votos.bom },
+            { x: "Neutro", y: votos.neutro },
+            { x: "Ruim", y: votos.ruim },
+            { x: "Péssimo", y: votos.pessimo },
           ]}
           style={{
             labels: { fill: "transparent" },

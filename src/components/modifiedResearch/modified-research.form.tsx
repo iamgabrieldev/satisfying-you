@@ -12,7 +12,6 @@ import { db } from "../../firebase/config";
 
 export const ModifiedResearchForm = (id: any) => {
   const { navigate } = useNavigation();
-  const [researchData, setResearchData] = React.useState<any>();
 
   let form = useForm<ModifiedResearchFormFields>({
     defaultValues: ModifiedResearchFormLayout.defaultValues,
@@ -62,14 +61,13 @@ export const ModifiedResearchForm = (id: any) => {
     }
 
     const docRef = doc(pesquisaCollection, id.id);
-      updateDoc(docRef, docPesquisa).then(() => {
-        console.log('Pesquisa atualizada com sucesso!');
-        reset(); // Limpa os campos do formulário
-        navigate('Home');
-      }).catch((error) => {
-        console.log('Erro ao atualizar pesquisa: ' + error);
-      });
+    updateDoc(docRef, docPesquisa).then(() => {
+      console.log('Pesquisa atualizada com sucesso!');
+      navigate('Home');
+    }).catch((error) => {
+      console.log('Erro ao atualizar pesquisa: ' + error);
     });
+  });
 
   const fetchResearchData = async (id: any) => {
     try {

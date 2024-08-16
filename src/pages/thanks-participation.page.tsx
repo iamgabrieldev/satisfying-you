@@ -10,7 +10,7 @@ const ThanksParticipationPage: FC<ThanksParticipationScreenProps> = ({
   const { navigate } = navigation;
 
   setTimeout(() => {
-    navigate("Collect");
+    navigate("Home");
   }, 3000);
 
   return (

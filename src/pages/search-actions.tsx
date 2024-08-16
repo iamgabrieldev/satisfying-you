@@ -21,11 +21,11 @@ const ResearchActions: FC<ResearchActionsScreenProps> = ({
 
   const goToCollect = () => {
     // TODO: Handle collect research navigation.
-    navigate("Collect");
+    navigate("Collect", { id: research.id});
   };
 
   const goToReport = () => {
-    navigate("Report Page");
+    navigate("Report Page", { id: research.id });
   };
 
   return (

@@ -19,10 +19,10 @@ export type PreAuthParamList = {
 export type AppParamList = {
   Home: undefined;
   "Research Actions": { research: Research };
-  Collect: undefined;
+  Collect: { id: any };
   "Thanks Participation": undefined;
-  "Report Page": undefined;
-  "Modified Research": { id: string };
+  "Report Page": { id: any };
+  "Modified Research": { id: any };
   "New Research": undefined;
 };
 
