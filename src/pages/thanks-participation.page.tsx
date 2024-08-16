@@ -1,17 +1,26 @@
 import { StyleSheet, View } from "react-native";
 import { Text } from "react-native-paper";
 import { Container } from "../components/ui/Container";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { ThanksParticipationScreenProps } from "../navigation/navigation";
 
 const ThanksParticipationPage: FC<ThanksParticipationScreenProps> = ({
   navigation,
 }) => {
-  const { navigate } = navigation;
+  const { navigate, addListener } = navigation;
 
-  setTimeout(() => {
-    navigate("Collect");
-  }, 3000);
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
+    const unsub = addListener("focus", () => {
+      timer = setTimeout(() => {
+        navigate("Home");
+      }, 3000);
+    });
+    return () => {
+      clearTimeout(timer);
+      unsub();
+    };
+  }, []);
 
   return (
     <Container>

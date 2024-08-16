@@ -8,6 +8,8 @@ import { Container } from "../components/ui/Container";
 import { ValidationMessages } from "../components/validation/Messages";
 import { FC } from "react";
 import { RecoverPasswordScreenProps } from "../navigation/navigation";
+import { sendPasswordResetEmail } from "@firebase/auth";
+import { firebaseAuth } from "../firebase/config";
 
 const RecoverPasswordPage: FC<RecoverPasswordScreenProps> = ({
   navigation,
@@ -17,8 +19,11 @@ const RecoverPasswordPage: FC<RecoverPasswordScreenProps> = ({
   const theme = useAppTheme();
 
   const submit = handleSubmit((formData) => {
-    // TODO: Handle recover password here
-    navigate("Login");
+    const { email } = formData
+    sendPasswordResetEmail(firebaseAuth, email).then(() => {
+      console.log("E-mail de recuperação enviado com sucesso!")
+      navigate("Login");
+    })
   });
 
   return (

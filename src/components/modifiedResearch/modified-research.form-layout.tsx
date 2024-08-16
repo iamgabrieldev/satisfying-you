@@ -9,7 +9,7 @@ const Name = () => {
   return (
     <Controller
       control={control}
-      name="name"
+      name="nome"
       rules={{ required: ValidationMessages.REQUIRED_NAME_RESEARCH }}
       render={({ field, fieldState }) => (
         <TextField
@@ -35,7 +35,6 @@ const Data = () => {
           label="Data"
           {...field}
           isError={fieldState.error ? true : false}
-          value="10/10/2023"
           dataText={true}
           helperText={fieldState.error?.message}
         />
@@ -45,6 +44,11 @@ const Data = () => {
 };
 
 const ImageInput = () => {
+  const { watch } = useFormContext<ModifiedResearchFormFields>();
+  const imageUrl = watch("imageUrl");
+
+  console.log("Image URL: ", imageUrl);
+
   return (
     <>
       <Text style={{ color: "#fff" }}>Imagem</Text>
@@ -54,15 +58,15 @@ const ImageInput = () => {
 };
 
 export type ModifiedResearchFormFields = {
-  name: string;
+  nome: string;
   data: string;
-  image: any;
+  imageUrl: any;
 };
 
 const defaultValues: ModifiedResearchFormFields = {
-  name: "Ubuntu 2022",
+  nome: "Ubuntu 2022",
   data: "10/10/2023",
-  image: undefined,
+  imageUrl: "",
 };
 
 const ModifiedResearchFormLayout = {

@@ -3,17 +3,38 @@ import { Button, Searchbar } from "react-native-paper";
 import { Container } from "../components/ui/Container";
 import { CardAction } from "../components/cards/CardsAction";
 import { ScrollView } from "react-native-gesture-handler";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { HomeScreenProps } from "../navigation/navigation";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { db } from "../firebase/config";
 
 const HomePage: FC<HomeScreenProps> = ({ navigation }) => {
   const theme = useAppTheme();
   const { navigate } = navigation;
   const [searchQuery, setSearchQuery] = useState("");
 
-  const goToCard = () => {
+  const [listaPesquisas, setListaPesquisas] = useState([])
+
+  const pesquisaCollection = collection(db, 'pesquisas')
+
+  useEffect(() => {
+    const q = query(pesquisaCollection, orderBy('nome', 'asc'))
+
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+        const pesquisas: any = []
+        snapshot.forEach((doc) => {
+            pesquisas.push({
+                id: doc.id,
+                ...doc.data()
+            })
+        })
+        setListaPesquisas(pesquisas)
+    })
+}, [])
+
+  const goToCard = (id: string) => {
     navigate("Research Actions", {
-      research: { date: "21/04/2023", imgSourcePath: "", title: "Tile" },
+      research: { id: id, date: "21/04/2023", imgSourcePath: "", title: "Tile" },
     });
   };
 
@@ -27,24 +48,15 @@ const HomePage: FC<HomeScreenProps> = ({ navigation }) => {
           value={searchQuery}
         />
 
-        <CardAction
-          title="SECOMP 2023"
-          date="10/10/2023"
-          imgSource={require("../assets/images/secomp.png")}
-          onClick={goToCard}
-        />
-        <CardAction
-          title="UBUNTU 2022"
-          date="05/06/2022"
-          imgSource={require("../assets/images/ubuntu.png")}
-          onClick={goToCard}
-        />
-        <CardAction
-          title="MENINAS CPU"
-          date="01/04/2022"
-          imgSource={require("../assets/images/meninascpu.png")}
-          onClick={goToCard}
-        />
+        {listaPesquisas.map((pesquisa: any) => (
+          <CardAction 
+            key={pesquisa.id}
+            title={pesquisa.nome}
+            date={pesquisa.data}
+            imgSource={{ uri: pesquisa.imageUrl }}
+            onClick={() => goToCard(pesquisa.id)}
+          />
+        ))}
         <Button
           style={{ marginTop: 30, backgroundColor: theme.colors.success }}
           onPress={() => navigate("New Research")}
